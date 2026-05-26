@@ -1,0 +1,21 @@
+{
+  "name": "intervuex",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace @intervuex/api\" \"npm run dev --workspace @intervuex/web\"",
+    "build": "npm run build --workspace @intervuex/shared && npm run build --workspace @intervuex/api && npm run build --workspace @intervuex/web",
+    "lint": "npm run lint --workspace @intervuex/shared && npm run lint --workspace @intervuex/api && npm run lint --workspace @intervuex/web",
+    "typecheck": "npm run typecheck --workspace @intervuex/shared && npm run typecheck --workspace @intervuex/api && npm run typecheck --workspace @intervuex/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  },
+  "dependencies": {
+    "mongoose": "^9.6.2"
+  }
+}
